@@ -2,32 +2,42 @@
 #Script to build buildroot configuration
 #Author: Siddhant Jajoo
 
-source shared.sh
 
-EXTERNAL_REL_BUILDROOT=../base_external
+
 git submodule init
 git submodule sync
 git submodule update
 
 set -e 
-cd `dirname $0`
+#ASSIGNMENT4_PRJ=`dirname $0`
+ASSIGNMENT4_PRJ=$(realpath $(dirname $0))
+EXTERNAL_REL_BUILDROOT=${ASSIGNMENT4_PRJ}/base_external
 
-if [ ! -e buildroot/.config ]
+source shared.sh
+
+echo "Assignment 4 root dir: ${ASSIGNMENT4_PRJ}"
+echo "QEMU_DEFCONFIG dir: ${QEMU_DEFCONFIG}"
+echo "MODIFIED_QEMU_DEFCONFIG: ${MODIFIED_QEMU_DEFCONFIG}"
+echo "AESD_DEFAULT_DEFCONFIG: ${AESD_DEFAULT_DEFCONFIG}"
+echo "AESD_MODIFIED_DEFCONFIG: ${AESD_MODIFIED_DEFCONFIG}"
+echo "AESD_MODIFIED_DEFCONFIG_REL_BUILDROOT: ${AESD_MODIFIED_DEFCONFIG_REL_BUILDROOT}"
+
+if [ ! -e ${EXTERNAL_REL_BUILDROOT}/buildroot/.config ]
 then
 	echo "MISSING BUILDROOT CONFIGURATION FILE"
 
 	if [ -e ${AESD_MODIFIED_DEFCONFIG} ]
 	then
 		echo "USING ${AESD_MODIFIED_DEFCONFIG}"
-		make -C buildroot defconfig BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT} BR2_DEFCONFIG=${AESD_MODIFIED_DEFCONFIG_REL_BUILDROOT}
+		make -C ${EXTERNAL_REL_BUILDROOT}/buildroot defconfig BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT} BR2_DEFCONFIG=${AESD_MODIFIED_DEFCONFIG_REL_BUILDROOT}
 	else
 		echo "Run ./save_config.sh to save this as the default configuration in ${AESD_MODIFIED_DEFCONFIG}"
 		echo "Then add packages as needed to complete the installation, re-running ./save_config.sh as needed"
-		make -C buildroot defconfig BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT} BR2_DEFCONFIG=${AESD_DEFAULT_DEFCONFIG}
+		make -C ${EXTERNAL_REL_BUILDROOT}/buildroot defconfig BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT} BR2_DEFCONFIG=${AESD_DEFAULT_DEFCONFIG}
 	fi
 else
 	echo "USING EXISTING BUILDROOT CONFIG"
 	echo "To force update, delete .config or make changes using make menuconfig and build again."
-	make -C buildroot BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT}
+	make -C ${EXTERNAL_REL_BUILDROOT}/buildroot BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT}
 
 fi
