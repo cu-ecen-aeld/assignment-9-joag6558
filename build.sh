@@ -15,7 +15,6 @@ EXTERNAL_REL_BUILDROOT=${ASSIGNMENT4_PRJ}/base_external
 
 source shared.sh
 
-"USING DIR: ${ASSIGNMENT4_PRJ}"
 
 if [ ! -e ${EXTERNAL_REL_BUILDROOT}/buildroot/.config ]
 then
