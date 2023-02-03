@@ -1,0 +1,7 @@
+
+config BR2_PACKAGE_LDD
+	bool "ldd"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Includes support for building and installing the misc-modules and scull components on qemu target.
+	  Used to understand buildroot external trees and package builds.
