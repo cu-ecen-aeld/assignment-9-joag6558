@@ -1,17 +1,15 @@
 name: assignment-test
 on: [push]
-permissions: 
-  contents: write
 jobs:
     full-test:
         container: cuaesd/aesd-autotest:assignment5-buildroot
         runs-on: self-hosted
         timeout-minutes: 120
         steps:
-          - uses: actions/checkout@v3
+          - uses: actions/checkout@v2
           - name: Checkout submodules
             run: git submodule update --init --recursive
-          - uses: webfactory/ssh-agent@v0.7.0
+          - uses: webfactory/ssh-agent@v0.5.3
             with:
                 ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           - name: Run full test
