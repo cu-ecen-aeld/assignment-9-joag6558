@@ -6,7 +6,7 @@ jobs:
         runs-on: self-hosted
         timeout-minutes: 120
         steps:
-          - uses: actions/checkout@v2.3.4
+          - uses: actions/checkout@v3
           - name: Checkout submodules
             run: git submodule update --init --recursive
           - uses: webfactory/ssh-agent@v0.5.3
