@@ -6,10 +6,10 @@ jobs:
         runs-on: self-hosted
         timeout-minutes: 120
         steps:
-          - uses: actions/checkout@v2
+          - uses: actions/checkout@v3
           - name: Checkout submodules
             run: git submodule update --init --recursive
-          - uses: webfactory/ssh-agent@v0.5.3
+          - uses: webfactory/ssh-agent@v0.7.0
             with:
                 ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           - name: Run full test
