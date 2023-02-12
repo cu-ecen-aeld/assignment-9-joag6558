@@ -1,9 +1,14 @@
 name: assignment-test
-on: [push]
+on:
+    push:
+        tags-ignore:
+            - '*'
+        branches:
+            - '*'
 jobs:
     full-test:
-        container: cuaesd/aesd-autotest:assignment5-buildroot
-        runs-on: ubuntu-latest
+        container: cuaesd/aesd-autotest:assignment7-buildroot
+        runs-on: self-hosted
         timeout-minutes: 120
         steps:
           - uses: actions/checkout@v2
