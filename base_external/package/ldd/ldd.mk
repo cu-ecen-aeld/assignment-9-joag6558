@@ -6,7 +6,7 @@
 ##############################################################
 
 #TODO: Fill up the contents below in order to reference your assignment 3 git contents
-LDD_VERSION = 7504ee2f27e36e7d58375dd9abcdc3c4b36050ae
+LDD_VERSION = a1dfe93f5b1065dc55fae67e2d9cb8f37be82052
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:
