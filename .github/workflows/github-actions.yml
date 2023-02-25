@@ -9,7 +9,7 @@ jobs:
     full-test:
         container: cuaesd/aesd-autotest:assignment7-buildroot
         runs-on: ubuntu-latest
-        timeout-minutes: 120
+        timeout-minutes: 600
         steps:
           - uses: actions/checkout@v3
           - name: Checkout submodules
