@@ -6,12 +6,13 @@
 ##############################################################
 
 #TODO: Fill up the contents below in order to reference your assignment 3 git contents
-LDD_VERSION = a1dfe93f5b1065dc55fae67e2d9cb8f37be82052
+LDD_VERSION = f6335f95a83899dccd7520a3cf9e21c33378e5b9
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:
 #LDD_SITE = git@github.com:cu-ecen-aeld/assignment-3-and-later-joag6558.git
-LDD_SITE = https://github.com/cu-ecen-aeld/assignments-3-and-later-joag6558.git
+LDD_SITE = git@github.com:cu-ecen-aeld/assignments-3-and-later-joag6558.git
+#LDD_SITE = https://github.com/cu-ecen-aeld/assignments-3-and-later-joag6558.git
 #AESD_ASSIGNMENTS_OVERRIDE_SRCDIR=/home/syslaptop/projects/msee/ecea-5305/week2b/assignment5part1/assignments-3-and-later-joag6558/server
 #LDD_OVERRIDE_SRCDIR=/home/syslaptop/projects/msee/ecea-5306/week2/assignment7par2b
 
